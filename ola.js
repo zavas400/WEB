@@ -6,6 +6,11 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
-app.listed(port, ()=> {
+app.get('', (req, res)=>{
+    const uri = path.join(__dirname, 'public', 'index.html');
+    res.sendFile(uri);
+})
+
+app.listen(port, ()=> {
     console.log('app is running');
 });
